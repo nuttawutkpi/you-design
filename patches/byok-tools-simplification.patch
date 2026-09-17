@@ -32,7 +32,7 @@
 -export const BYOK_AIHUBMIX_DEFAULT_IMAGE_MODEL =
 -  BYOK_AIHUBMIX_IMAGE_MODELS[0] ?? 'aihubmix-gpt-image-1';
 +const BYOK_AIHUBMIX_DEFAULT_IMAGE_MODEL =
-+  BYOK_AIHUBMIX_DEFAULT_IMAGE_MODEL[0] ?? 'aihubmix-gpt-image-1';
++  BYOK_AIHUBMIX_IMAGE_MODELS[0] ?? 'aihubmix-gpt-image-1';
  
 @@ -98,7 +101,7 @@
  export function isAIHubMixSpeechModel(value: unknown): value is string {
