@@ -1,0 +1,44 @@
+--- a/apps/daemon/src/byok-tools.ts
++++ b/apps/daemon/src/byok-tools.ts
+@@ -44,8 +44,9 @@
+ // auto-extends the BYOK tool param enum, the Settings dropdown, and the
+ // daemon-side validation. No drift, no hand-maintained constant.
+-export const BYOK_SENSEAUDIO_IMAGE_MODELS: readonly string[] = IMAGE_MODELS
++// Track 3 simplification: was `export const`, now internal. Zero callers
++// outside this file. Validator below still references the value.
++const BYOK_SENSEAUDIO_IMAGE_MODELS: readonly string[] = IMAGE_MODELS
+   .filter((m) => m.provider === 'senseaudio')
+   .map((m) => m.id);
+ 
+@@ -52,8 +53,9 @@
+ // `senseaudio-image-2.0-260319` — the multi-aspect latest). Kept as a
+ // computed constant so re-ordering the registry rotates the default
+ // without code edits here.
+-export const BYOK_SENSEAUDIO_DEFAULT_IMAGE_MODEL =
+-  BYOK_SENSEAUDIO_IMAGE_MODELS[0] ?? 'senseaudio-image-2.0-260319';
++const BYOK_SENSEAUDIO_DEFAULT_IMAGE_MODEL =
++  BYOK_SENSEAUDIO_IMAGE_MODELS[0] ?? 'senseaudio-image-2.0-260319';
+ 
+@@ -62,8 +64,9 @@
+ // AIHubMix image-model allowlist — same registry-derived pattern as SenseAudio
+ // so a new `provider: 'aihubmix'` image entry auto-extends the chat tool enum,
+ // the Settings dropdown, and the daemon-side validation with no hand edits.
+-export const BYOK_AIHUBMIX_IMAGE_MODELS: readonly string[] = IMAGE_MODELS
++const BYOK_AIHUBMIX_IMAGE_MODELS: readonly string[] = IMAGE_MODELS
+   .filter((m) => m.provider === 'aihubmix')
+   .map((m) => m.id);
+ 
+@@ -66,8 +69,8 @@
+-export const BYOK_AIHUBMIX_DEFAULT_IMAGE_MODEL =
+-  BYOK_AIHUBMIX_IMAGE_MODELS[0] ?? 'aihubmix-gpt-image-1';
++const BYOK_AIHUBMIX_DEFAULT_IMAGE_MODEL =
++  BYOK_AIHUBMIX_DEFAULT_IMAGE_MODEL[0] ?? 'aihubmix-gpt-image-1';
+ 
+@@ -98,7 +101,7 @@
+ export function isAIHubMixSpeechModel(value: unknown): value is string {
+   return typeof value === 'string' && value.startsWith('aihubmix-');
+ }
+-export const BYOK_AIHUBMIX_DEFAULT_SPEECH_MODEL = 'aihubmix-tts-1';
++const BYOK_AIHUBMIX_DEFAULT_SPEECH_MODEL = 'aihubmix-tts-1';
+ 
+ const AIHUBMIX_DEFAULT_TTS_MODEL = 'tts-1';

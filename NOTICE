@@ -1,0 +1,47 @@
+You Design
+Copyright 2026 You Design contributors
+
+This product is a fork of OpenDesign (https://github.com/nexu-io/open-design),
+which is licensed under the Apache License, Version 2.0 (the "License").
+You may obtain a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+================================================================================
+Fork modifications (You Design)
+================================================================================
+
+Original work (OpenDesign):
+  Copyright 2026 Open Design contributors
+  Licensed under Apache License, Version 2.0
+  Source: https://github.com/nexu-io/open-design
+
+Branding:
+  - "OpenDesign" -> "YouDesign" (PascalCase)
+  - "Open Design" -> "You Design" (display)
+  - "@open-design/*" -> "@you-design/*" (package scope)
+  - "open-design" -> "you-design" (slugs)
+  - "od" (bin) -> "yd" (bin)
+
+Track 1 - Linux desktop build PR guard
+  Added .github/workflows/build-linux-pr.yml (PR guard that exercises the
+  full Linux AppImage build + smoke test on every change touching packaging).
+
+Track 2 - Thai design system
+  Added design-systems/thai-modern/ (cream + terracotta starter package with
+  Noto Sans Thai typography; schemaVersion = od-design-system-project/v1).
+
+Track 3 - BYOK dead-export cleanup
+  Patches/byok-tools-simplification.patch (removes 5 dead `export const`
+  declarations from apps/daemon/src/byok-tools.ts; no behavior change).
+
+Track 4 - HyperFrames Thai palette + sample
+  Added design-templates/hyperframes/palettes/thai-modern.md and
+  design-templates/hyperframes/samples/thai-modern-reveal/ (Thai-localized
+  HyperFrames palette + 6-second Thai product reveal composition).
